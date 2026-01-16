@@ -49,7 +49,6 @@ interface user {
 
 export async function addUser(newUser: newUser | null) {
   let users = await getPostalAddress();
-  if (newUser == null) return 
   if (newUser) {
     const lastUser = users[users.length - 1];
     const newUserId = lastUser.id + 1;
