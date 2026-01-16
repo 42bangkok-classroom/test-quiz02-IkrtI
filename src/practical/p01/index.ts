@@ -1,20 +1,20 @@
 import axios from "axios";
 
-export function getPostalAddress() {
-  return axios("https://jsonplaceholder.typicode.com/users")
-    .then(({ data }): user[] =>
-      data.map((user: user) => ({
-        id: user.id,
-        name: user.name,
-        phone: user.phone,
-        address: user.address ?? null,
-      }))
-    )
-    .catch((err) => {
-      return err;
-    });
+export async function getPostalAddress() {
+  try {
+    const { data } = await axios("https://jsonplaceholder.typicode.com/users");
+    return data.map((user: user) => ({
+      id: user.id,
+      name: user.name,
+      phone: user.phone,
+      address: user.address ?? null,
+    }));
+  } catch (err) {
+    return err;
+  }
 }
-interface user {
+
+type user = {
   id: number;
   name: string;
   username: string;
@@ -36,4 +36,4 @@ interface user {
     catchPhrase: string;
     bs: string;
   };
-}
+};

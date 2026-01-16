@@ -63,4 +63,5 @@ export async function addUser(newUser: newUser | null) {
 
     users.push(userToAdd);
   }
+  return users;
 }
