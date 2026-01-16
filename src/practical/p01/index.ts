@@ -7,14 +7,13 @@ export function getPostalAddress() {
         id: user.id,
         name: user.name,
         phone: user.phone,
-        address: user.address || null,
+        address: user.address ?? null,
       }))
     )
     .catch((err) => {
       return err;
     });
 }
-
 interface user {
   id: number;
   name: string;
